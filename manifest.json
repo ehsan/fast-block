@@ -26,33 +26,6 @@
 	},
 	"content_scripts": [
 		{
-			"all_frames": false,
-			"js": [
-				"dist/ghostery_dot_com.js"
-			],
-			"matches": [
-				"https://www.ghostery.com/*",
-				"https://apps.ghostery.com/*",
-				"https://staging-apps.ghostery.com/*",
-				"https://gcache.ghostery.com/*",
-				"https://staging-gcache.ghostery.com/*"
-			],
-			"run_at": "document_idle"
-		},
-		{
-			"all_frames": false,
-			"js": [
-				"dist/platform_pages.js"
-			],
-			"matches": [
-				"https://signon.ghostery.com/*",
-				"https://signon.ghosterystage.com/*",
-				"https://account.ghostery.com/*",
-				"https://account.ghosterystage.com/*"
-			],
-			"run_at": "document_end"
-		},
-		{
 			"all_frames": true,
 			"js": [
 				"dist/content_script_bundle.js"

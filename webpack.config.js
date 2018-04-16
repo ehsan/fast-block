@@ -45,8 +45,7 @@ const cleanTmpStyleFiles = new WebpackShellPlugin({
 		`${RM} ./dist/panel.js`,
 		`${RM} ./dist/panel_android.js`,
 		`${RM} ./dist/purplebox_styles.js`,
-		`${RM} ./dist/setup.js`,
-		`${RM} ./dist/ghostery_dot_com_css.js`
+		`${RM} ./dist/setup.js`
 	]
 });
 
@@ -154,17 +153,14 @@ const config = {
 		background: [SRC_DIR + '/background.js'],
 		blocked_redirect: [CONTENT_SCRIPTS_DIR + '/blocked_redirect.js'],
 		click_to_play: [CONTENT_SCRIPTS_DIR + '/click_to_play.js'],
-		ghostery_dot_com: [CONTENT_SCRIPTS_DIR + '/ghostery_dot_com.js'],
 		notifications: [CONTENT_SCRIPTS_DIR + '/notifications.js'],
 		page_performance: [CONTENT_SCRIPTS_DIR + '/page_performance.js'],
-		platform_pages: [CONTENT_SCRIPTS_DIR + '/platform_pages.js'],
 		purplebox: [CONTENT_SCRIPTS_DIR + '/purplebox.js'],
 		content_script_bundle: [CLIQZ_DIR + '/core/content-script.bundle.js'],
 		panel_react: [PANEL_DIR + '/index.jsx'],
 		setup_react: [SETUP_DIR + '/index.jsx'],
 		licenses_react: [LICENSES_DIR + '/Licenses.jsx', LICENSES_DIR + '/License.jsx'],
 		foundation: [SASS_DIR + '/vendor/foundation.scss'],
-		ghostery_dot_com_css: [SASS_DIR + '/ghostery_dot_com.scss'],
 		panel: [SASS_DIR + '/panel.scss'],
 		panel_android: [SASS_DIR + '/panel_android.scss'],
 		purplebox_styles: [SASS_DIR + '/purplebox.scss'],
