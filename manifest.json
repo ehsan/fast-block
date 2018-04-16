@@ -2,12 +2,12 @@
 	"manifest_version": 2,
 	"applications": {
 		"gecko": {
-			"id": "firefox@ghostery.com"
+			"id": "firefox@fast.block"
 		}
 	},
-	"author": "Ghostery",
+	"author": "Ehsan Akhgari",
 	"name": "__MSG_name__",
-	"short_name": "Ghostery",
+	"short_name": "FastBlock",
 	"version": "8.1.0",
 	"version_name": "8.1.0",
 	"default_locale": "en",
@@ -22,7 +22,7 @@
 			"19": "app/images/icon19_off.png",
 			"38": "app/images/icon38_off.png"
 		},
-		"default_title": "Ghostery"
+		"default_title": "FastBlock"
 	},
 	"content_scripts": [
 		{

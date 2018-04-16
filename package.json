@@ -1,11 +1,11 @@
 {
-  "name": "ghostery-extension",
+  "name": "fast-block",
   "version": "0.0.0",
-  "title": "Ghostery",
+  "title": "FastBlock",
   "author": {
-    "name": "Ghostery, Inc",
-    "email": "info@ghostery.com",
-    "url": "https://www.ghostery.com"
+    "name": "Ehsan Akhgari",
+    "email": "ehsan.akhgari@gmail.com",
+    "url": "https://ehsanakhgari.org"
   },
   "license": "MPL-2.0",
   "main": "webpack.config.js",
@@ -33,13 +33,13 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ghostery/ghostery-extension.git"
+    "url": "git+https://github.com/ehsan/fast-block.git"
   },
   "bugs": {
-    "url": "https://github.com/ghostery/ghostery-extension/issues",
+    "url": "https://github.com/ehsan/fast-block/issues",
     "email": "ghostery-dev@ghostery.com"
   },
-  "homepage": "https://github.com/ghostery/ghostery-extension#readme",
+  "homepage": "https://github.com/ehsan/fast-block#readme",
   "dependencies": {
     "base64-js": "^1.2.1",
     "browser-core": "https://s3.amazonaws.com/cdncliqz/update/edge/ghostery/v7.24/7.24.3.tgz",
