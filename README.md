@@ -1,20 +1,6 @@
-[![Ghostery](https://www.ghostery.com/wp-content/themes/ghostery/images/ghostery_logo_black.svg)](https://www.ghostery.com)
----
+# FastBlock: Make your browsing faster by blocking slow trackers
 
-[![Build Status](https://travis-ci.org/ghostery/ghostery-extension.svg?branch=master)](https://travis-ci.org/ghostery/ghostery-extension) &nbsp; ![GitHub manifest version](https://img.shields.io/github/manifest-json/v/ghostery/ghostery-extension.svg?style=flat-square) &nbsp; [![Chat on Gitter](https://img.shields.io/gitter/room/ghostery/ghostery-expenstion.svg?style=flat-square)](https://gitter.im/ghostery/ghostery-extension) &nbsp; [![Twitter Follow](https://img.shields.io/twitter/follow/ghostery.svg?style=social&maxAge=3600)](https://twitter.com/ghostery)
-
-Ghostery helps you browse smarter by giving you control over ads and tracking technologies to speed up page loads, eliminate clutter, and protect your data. This is the unified code repository for the Ghostery browser extensions in Chrome, Firefox, Opera and Edge.
-
-## Downloads
-**Firefox** &ndash; [Download](https://addons.mozilla.org/en-US/firefox/addon/ghostery/) &nbsp; ![amo-rating](https://img.shields.io/amo/rating/ghostery.svg?style=flat-square) &nbsp; ![amo-users](https://img.shields.io/amo/users/ghostery.svg?style=flat-square)
-
-**Chrome** &ndash; [Download](https://chrome.google.com/webstore/detail/ghostery-%E2%80%93-privacy-ad-blo/mlomiejdfkolichcflejclcbmpeaniij) &nbsp; ![Chrome Web Store-rating](https://img.shields.io/chrome-web-store/rating/mlomiejdfkolichcflejclcbmpeaniij.svg?style=flat-square) &nbsp; ![Chrome Web Store-users](https://img.shields.io/chrome-web-store/d/mlomiejdfkolichcflejclcbmpeaniij.svg?style=flat-square&label=users)
-
-**Cliqz** &ndash; [Download](https://s3.amazonaws.com/cdncliqz/update/browser/firefox%40ghostery.com/latest.xpi)
-
-**Opera** &ndash; [Download](https://addons.opera.com/en/extensions/details/ghostery/)
-
-**Edge** &ndash; [Download](https://www.microsoft.com/en-us/store/p/ghostery/9nblggh52ngz)
+This is an extension based on [Ghostery](https://github.com/ghostery/ghostery-extension) which enables Ghostery's Smart Blocking feature only.
 
 ## Installation
 ```sh
@@ -66,49 +52,6 @@ $ npm run lint.raw -- src/utils/matcher.js
 # Build JSDoc files to ./docs
 $ npm run docs
 ```
-
-## Cliqz Source Code
-Ghostery implements the following open-source products from [Cliqz](https://cliqz.com/en/)
-
-[**Human Web**](https://cliqz.com/en/whycliqz/human-web)
-+ [How it works](https://cliqz.com/en/magazine/techblog-human-web-reliably-removes-uids)
-+ [GitHub](https://github.com/cliqz-oss/browser-core/blob/master/modules/human-web/)
-
-[**Anti-Tracking**](https://cliqz.com/en/whycliqz/anti-tracking)
-+ [How it works](https://cliqz.com/en/magazine/how-we-at-cliqz-protect-users-from-web-tracking)
-+ [GitHub](https://github.com/cliqz-oss/browser-core/blob/master/modules/antitracking)
-
-[**Ad Blocker**](https://cliqz.com/en/whycliqz/adblocking)
-+ [GitHub](https://github.com/cliqz-oss/adblocker)
-
-## Compatibility
-
-+ Firefox: 52+
-+ Firefox Android: 55+
-+ Chrome: 49+
-+ Opera: 36+
-+ Edge: 34.14291+
-
-## Contribute
-
-See [CONTRIBUTING](CONTRIBUTING.md) and [CODE OF CONDUCT](CODE-OF-CONDUCT.md)
-
-## Links
-+ [Website](https://ghostery.com/)
-+ [Support](https://ghostery.zendesk.com/)
-+ [Twitter (@ghostery)](https://twitter.com/ghostery)
-+ [Facebook](https://www.facebook.com/ghostery)
-+ [Privacy Policy](https://www.ghostery.com/about-ghostery/browser-extension-privacy-policy/)
-
-## Ghostery Team
-Ghostery relies on [contributions](https://github.com/ghostery/ghostery-extension/graphs/contributors) from lots of talented people. Our core development team looks like this:
-
-![Christopher Tino](https://avatars3.githubusercontent.com/u/4699516?s=460&v=4) | ![José María Signanini](https://static.cliqz.com/wp-content/uploads/2017/08/jose.jpg) | ![Serge Zarembsky](https://static.cliqz.com/wp-content/uploads/2017/08/serge.jpg) | ![Patrick Lawler](https://static.cliqz.com/wp-content/uploads/2017/08/patrick.jpg) | ![Caleb Richelson](https://avatars0.githubusercontent.com/u/1928870?s=400&v=4) | ![Aziz Aithsaine](https://static.cliqz.com/wp-content/uploads/2017/08/aziz.jpg)
-:---:|:---:|:---:|:---:|:---:|:---:
-[Christopher Tino](http://github.com/christophertino) | [José María Signanini](https://github.com/jsignanini) | [Serge Zarembsky](https://github.com/zarembsky) | [Patrick Lawler](https://github.com/trickpattyFH20) | [Caleb Richelson](https://github.com/IAmThePan) | Aziz Aithsaine
-
-See the full montage of uncommonly attractive Ghosterians/Cliqzers [here](https://www.cliqz.com/about/team).
-
 ## License
 [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/) Copyright 2018 Ghostery, Inc. All rights reserved.
 
