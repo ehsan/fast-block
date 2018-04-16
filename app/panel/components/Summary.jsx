@@ -22,7 +22,6 @@ import globals from '../../../src/classes/Globals';
 import { updateSummaryBlockingCount } from '../utils/blocking';
 
 const { BROWSER_INFO } = globals;
-const { IS_CLIQZ } = globals;
 /**
  * @class Implement Summary view.
  * @memberof PanelClasses
@@ -104,15 +103,9 @@ class Summary extends React.Component {
 		const type = event.target.value;
 		switch (type) {
 			case 'antiTrackBtn': {
-				if (!IS_CLIQZ) {
-					this.props.actions.openDrawer('enable_anti_tracking');
-				}
 				break;
 			}
 			case 'adBlockBtn': {
-				if (!IS_CLIQZ) {
-					this.props.actions.openDrawer('enable_ad_block');
-				}
 				break;
 			}
 			case 'smartBlockBtn': {
@@ -393,7 +386,7 @@ class Summary extends React.Component {
 						<div id="cliqz-controls">
 							<div className="row text-center">
 								<div className="columns medium-4">
-									<button value="antiTrackBtn" onClick={this.openDrawer} className={`${(this.state.disableBlocking || this.props.paused_blocking || this.props.sitePolicy !== false || IS_CLIQZ ? 'disabled' : '')} ${(this.props.enable_anti_tracking ? 'active' : '')} button controls-trust cliqz-control-btn anti-track-btn g-tooltip`} >
+									<button value="antiTrackBtn" onClick={this.openDrawer} className="disabled button controls-trust cliqz-control-btn anti-track-btn g-tooltip" >
 										<Tooltip
 											header={t('tooltip_anti_track')}
 											body={showBody && t('tooltip_anti_track_body')}
@@ -402,7 +395,7 @@ class Summary extends React.Component {
 									</button>
 								</div>
 								<div className="columns medium-4">
-									<button value="adBlockBtn" onClick={this.openDrawer} className={`${(this.state.disableBlocking || this.props.paused_blocking || this.props.sitePolicy !== false || IS_CLIQZ ? 'disabled' : '')} ${(this.props.enable_ad_block ? 'active' : '')} button controls-restrict cliqz-control-btn ad-block-btn g-tooltip`}>
+									<button value="adBlockBtn" onClick={this.openDrawer} className="disabled button controls-restrict cliqz-control-btn ad-block-btn g-tooltip" >
 										<Tooltip
 											header={t('tooltip_ad_block')}
 											body={showBody && t('tooltip_ad_block_body')}

@@ -33,7 +33,6 @@ import metrics from './Metrics';
 import globals from './Globals';
 
 const IS_EDGE = (globals.BROWSER_INFO.name === 'edge');
-const { IS_CLIQZ } = globals;
 
 /**
  * Proxy Handler
@@ -59,13 +58,11 @@ const handler = {
 		// Ghostery, while running as an extension in the Cliqz browser
 		// has these functionalities disabled. This is protection from
 		// altering settings by syncing and/or importing.
-		if (IS_CLIQZ) {
-			if (key === 'enable_human_web' ||
-				key === 'enable_offers' ||
-				key === 'enable_anti_tracking' ||
-				key === 'enable_ad_block') {
-				value = false;
-			}
+		if (key === 'enable_human_web' ||
+			key === 'enable_offers' ||
+			key === 'enable_anti_tracking' ||
+			key === 'enable_ad_block') {
+			value = false;
 		}
 		// Edge currently does not support Human Web and Offers
 		if (IS_EDGE) {
@@ -94,8 +91,6 @@ const handler = {
 				dispatcher.trigger('conf.changed.settings', key);
 			}
 		}
-
-		debounce(metrics.setUninstallUrl.bind(metrics), 200)(key);
 
 		return true;
 	},

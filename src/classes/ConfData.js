@@ -22,7 +22,6 @@ import globals from './Globals';
 import { prefsGet, log } from '../utils/common';
 
 const IS_EDGE = (globals.BROWSER_INFO.name === 'edge');
-const { IS_CLIQZ } = globals;
 /**
  * Class for handling user configuration properties synchronously.
  *
@@ -107,7 +106,7 @@ class ConfData {
 			_initProperty('notify_upgrade_updates', true);
 			_initProperty('settings_last_imported', 0);
 			_initProperty('settings_last_exported', 0);
-			_initProperty('show_alert', true);
+			_initProperty('show_alert', false);
 			_initProperty('show_badge', true);
 			_initProperty('show_cmp', true);
 			_initProperty('show_tracker_urls', true);

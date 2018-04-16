@@ -57,7 +57,7 @@ const { sendMessage } = utils;
 const { onMessage } = chrome.runtime;
 // simple consts
 const {
-	GHOSTERY_DOMAIN, CDN_SUB_DOMAIN, BROWSER_INFO, IS_CLIQZ
+	GHOSTERY_DOMAIN, CDN_SUB_DOMAIN, BROWSER_INFO
 } = globals;
 const IS_EDGE = (BROWSER_INFO.name === 'edge');
 const VERSION_CHECK_URL = `https://${CDN_SUB_DOMAIN}.ghostery.com/update/version`;
@@ -534,16 +534,16 @@ function onMessageHandler(request, sender, callback) {
 	if (name === 'disableShowAlert') {
 		conf.show_alert = false;
 	} else if (name === 'updateDataCollection') {
-		if (!IS_CLIQZ && !IS_EDGE) conf.enable_human_web = message && true;
-		conf.enable_metrics = message && true;
+		conf.enable_human_web = false;
+		conf.enable_metrics = false;
 	} else if (name === 'updateDisplayMode') {
 		conf.is_expert = message;
 	} else if (name === 'updateAntiTrack') {
-		conf.enable_anti_tracking = message;
+		conf.enable_anti_tracking = false;
 	} else if (name === 'updateSmartBlock') {
 		conf.enable_smart_block = message;
 	} else if (name === 'updateAdBlock') {
-		conf.enable_ad_block = message;
+		conf.enable_ad_block = false;
 	} else if (name === 'updateBlocking') {
 		switch (message) {
 			case 'UPDATE_BLOCK_ALL':
@@ -774,47 +774,12 @@ function initializeDispatcher() {
 		panelData.init();
 	});
 	dispatcher.on('conf.save.enable_human_web', (enableHumanWeb) => {
-		if (!IS_EDGE && !IS_CLIQZ) {
-			if (!HUMAN_WEB_PROCESSING && !BACKGROUND_LOADING) {
-				HUMAN_WEB_PROCESSING = true;
-				setCliqzModuleEnabled(humanweb, enableHumanWeb).then(() => {
-					HUMAN_WEB_PROCESSING = false;
-					// humanweb enable/disable may change telemetry abtest behaviour
-					setupABTests();
-				});
-			}
-		}
 	});
 	dispatcher.on('conf.save.enable_offers', (enableOffers) => {
-		if (!IS_EDGE && !IS_CLIQZ) {
-			if (!OFFERS_PROCESSING && !BACKGROUND_LOADING) {
-				OFFERS_PROCESSING = true;
-				setCliqzModuleEnabled(messageCenter, enableOffers)
-					.then(() => setCliqzModuleEnabled(offers, enableOffers));
-				OFFERS_PROCESSING = false;
-			}
-		}
 	});
 	dispatcher.on('conf.save.enable_anti_tracking', (enableAntitracking) => {
-		if (!IS_CLIQZ) {
-			if (!ANTI_TRACKING_PROCESSING && !BACKGROUND_LOADING) {
-				ANTI_TRACKING_PROCESSING = true;
-				setCliqzModuleEnabled(antitracking, enableAntitracking)
-					.then(() => {
-						ANTI_TRACKING_PROCESSING = false;
-					});
-			}
-		}
 	});
 	dispatcher.on('conf.save.enable_ad_block', (enableAdBlock) => {
-		if (!IS_CLIQZ) {
-			if (!AD_BLOCK_PROCESSING && !BACKGROUND_LOADING) {
-				setCliqzModuleEnabled(adblocker, enableAdBlock)
-					.then(() => {
-						AD_BLOCK_PROCESSING = false;
-					});
-			}
-		}
 	});
 
 	dispatcher.on('conf.changed.settings', _.debounce((key) => {
@@ -1237,21 +1202,6 @@ function initializeGhosteryModules() {
 
 		conf.install_random_number = randomNumber;
 		conf.install_date = dateString;
-
-		metrics.setUninstallUrl();
-
-		metrics.ping('install');
-
-		// Set 5 min timeout
-		setTimeout(() => {
-			metrics.ping('install_complete');
-		}, 300000);
-
-		// open the setup page on install
-		chrome.tabs.create({
-			url: chrome.runtime.getURL('./app/templates/setup.html'),
-			active: true
-		});
 	} else {
 		// Record install if the user previously closed the browser before the install ping fired
 		metrics.ping('install');

@@ -30,7 +30,6 @@ import { objectEntries, log } from '../utils/common';
 const button = new Button();
 const SYNC_SET = new Set(globals.SYNC_ARRAY);
 const IS_EDGE = (globals.BROWSER_INFO.name === 'edge');
-const { IS_CLIQZ } = globals;
 const policy = new Policy();
 /**
  * Class for handling data consumed by Ghostery panel.
@@ -98,12 +97,10 @@ class PanelData {
 			data.enable_human_web = false;
 			data.enable_offers = false;
 		}
-		if (IS_CLIQZ) {
-			data.enable_human_web = false;
-			data.enable_offers = false;
-			data.enable_ad_block = false;
-			data.enable_anti_tracking = false;
-		}
+		data.enable_human_web = false;
+		data.enable_offers = false;
+		data.enable_ad_block = false;
+		data.enable_anti_tracking = false;
 
 		// Set the conf from data
 		for (const [key, value] of objectEntries(data)) {

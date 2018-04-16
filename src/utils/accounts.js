@@ -28,7 +28,6 @@ import { log, decodeJwt } from './common';
 import { getJson, postJson, sendMessageToPanel } from './utils';
 
 const IS_EDGE = (globals.BROWSER_INFO.name === 'edge');
-const { IS_CLIQZ } = globals;
 
 // CONSTANTS
 const { GHOSTERY_DOMAIN } = globals;
@@ -423,12 +422,10 @@ function _pullUserSettings() {
 					settings.enable_human_web = false;
 					settings.enable_offers = false;
 				}
-				if (IS_CLIQZ) {
-					settings.enable_human_web = false;
-					settings.enable_offers = false;
-					settings.enable_ad_block = false;
-					settings.enable_anti_tracking = false;
-				}
+				settings.enable_human_web = false;
+				settings.enable_offers = false;
+				settings.enable_ad_block = false;
+				settings.enable_anti_tracking = false;
 				SYNC_SET.forEach((key) => {
 					if (settings[key] !== undefined &&
 						!_.isEqual(conf[key], settings[key])) {

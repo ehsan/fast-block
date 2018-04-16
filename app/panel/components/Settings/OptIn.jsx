@@ -14,9 +14,6 @@
 import React, { Component } from 'react';
 import globals from '../../../../src/classes/Globals';
 
-const IS_EDGE = (globals.BROWSER_INFO.name === 'edge');
-const IS_CLIQZ = (globals.BROWSER_INFO.name === 'cliqz');
-
 /**
  * @class Implement Opt In subview as a React component.
  * The view opens from the left-side menu of the main Settings view.
@@ -42,19 +39,6 @@ const OptIn = (props) => {
 							</div>
 						</div>
 					</div>
-					{!IS_EDGE && !IS_CLIQZ &&
-						<div className="s-option-group" id="human-web-section">
-							<div className="s-square-checkbox">
-								<input type="checkbox" id="settings-share-human-web" name="enable_human_web" defaultChecked={settingsData.enable_human_web} onClick={props.toggleCheckbox} />
-								<label htmlFor="settings-share-human-web">
-									<span>{ t('settings_share_human_web') }</span>
-								</label>
-								<div className="s-tooltip-up" data-g-tooltip={t('settings_human_web_tooltip')}>
-									<img src="../../app/images/panel/icon-information-tooltip.svg" className="s-question" />
-								</div>
-							</div>
-						</div>
-					}
 					{settingsData.enable_metrics_abtest &&
 						<div className="s-option-group" id="offers-section">
 							<div className="s-square-checkbox">

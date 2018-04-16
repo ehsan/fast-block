@@ -21,11 +21,9 @@ import {
 import { msg } from '../utils';
 import globals from '../../../src/classes/Globals';
 
-const { IS_CLIQZ } = globals;
-
 const initialState = {
-	antiTrack: !IS_CLIQZ,
-	adBlock: !IS_CLIQZ,
+	antiTrack: false,
+	adBlock: false,
 	smartBlock: true
 };
 

@@ -14,8 +14,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import globals from '../../../../src/classes/Globals';
 
-const { IS_CLIQZ } = globals;
-
 /**
  * @class Implement the #additional-features part of the Setup flow.
  * Offers choices to toggle on/off Cliqz's features: Enhanced Anti-Tracking,
@@ -78,7 +76,7 @@ class AdditionalFeaturesView extends Component {
 	 * @return {Object}
 	 */
 	createAntiTrackDescriptionMarkup() {
-		return { __html: IS_CLIQZ ? t('setup_feature_active_in_cliqz') : t('setup_additional_view_adblock_desc') };
+		return { __html: t('setup_feature_active_in_cliqz') };
 	}
 
 	/**
@@ -86,7 +84,7 @@ class AdditionalFeaturesView extends Component {
 	 * @return {Object}
 	 */
 	createAdBlockDescriptionMarkup() {
-		return { __html: IS_CLIQZ ? t('setup_feature_active_in_cliqz') : t('setup_additional_view_antitrack_desc') };
+		return { __html: t('setup_feature_active_in_cliqz') };
 	}
 
 	/**
@@ -104,14 +102,14 @@ class AdditionalFeaturesView extends Component {
 							</div>
 						</div>
 						<div className="columns shrink">
-							<label className={`switch ${IS_CLIQZ ? ' disabled' : ''}`}>
+							<label className="disabled">
 								<input type="checkbox" onChange={this._handleAntiTrack} checked={this.props.antiTrack} />
 								<span className="slider" />
 								<span className="slider-circle" />
 							</label>
 						</div>
 						<div className="columns small-12 medium-8">
-							<h4 style={IS_CLIQZ ? { color: '#979797' } : {}}>{ t('setup_additional_view_antitrack_title') }</h4>
+							<h4 style={ { color: '#979797' } } >{ t('setup_additional_view_antitrack_title') }</h4>
 							<h6 className={`enabled ${!this.props.antiTrack ? 'hide' : ''}`}>{ t('setup_additional_view_enabled') }</h6>
 							<p dangerouslySetInnerHTML={this.createAntiTrackDescriptionMarkup()} />
 						</div>
@@ -123,14 +121,14 @@ class AdditionalFeaturesView extends Component {
 							</div>
 						</div>
 						<div className="columns shrink">
-							<label className={`switch ${IS_CLIQZ ? ' disabled' : ''}`}>
+							<label className="disabled">
 								<input type="checkbox" onChange={this._handleAdBlock} checked={this.props.adBlock} />
 								<span className="slider" />
 								<span className="slider-circle" />
 							</label>
 						</div>
 						<div className="columns small-12 medium-8">
-							<h4 style={IS_CLIQZ ? { color: '#979797' } : {}}>{ t('setup_additional_view_adblock_title') }</h4>
+							<h4 style={ { color: '#979797' } }>{ t('setup_additional_view_adblock_title') }</h4>
 							<h6 className={`enabled ${!this.props.adBlock ? 'hide' : ''}`}>{ t('setup_additional_view_enabled') }</h6>
 							<p dangerouslySetInnerHTML={this.createAdBlockDescriptionMarkup()} />
 						</div>

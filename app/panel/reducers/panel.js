@@ -26,8 +26,8 @@ import { GET_PANEL_DATA,
 import { sendMessage } from '../utils/msg';
 
 const initialState = {
-	enable_ad_block: true,
-	enable_anti_tracking: true,
+	enable_ad_block: false,
+	enable_anti_tracking: false,
 	enable_smart_block: true,
 	initialized: false, // prevent rendering subviews before GET_PANEL_DATA resolves
 	is_expanded: false,

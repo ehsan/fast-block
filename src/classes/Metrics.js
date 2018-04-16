@@ -343,6 +343,9 @@ class Metrics {
 			};
 		}
 
+		// Disable all pings!
+		return;
+
 		frequencies.forEach((frequency) => {
 			if (this._checkPing(type, frequency)) {
 				const timeNow = Number((new Date()).getTime());
