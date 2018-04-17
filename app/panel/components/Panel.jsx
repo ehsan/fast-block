@@ -147,7 +147,6 @@ class Panel extends React.Component {
 						</span>
 					</div>
 				</div>
-				<Header />
 				{ this.props.children }
 				{ this.props.drawerIsOpen &&
 					<Drawer
