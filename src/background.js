@@ -824,20 +824,6 @@ function getAntitrackingTestConfig() {
  * @memberOf Background
  */
 function setupABTests() {
-	const antitrackingConfig = getAntitrackingTestConfig();
-	if (antitrackingConfig && conf.enable_anti_tracking) {
-		if (!conf.enable_human_web) {
-			// force disable anti-tracking telemetry on humanweb opt-out
-			antitrackingConfig.telemetryMode = 0;
-		}
-		Object.keys(antitrackingConfig).forEach((opt) => {
-			const val = antitrackingConfig[opt];
-			log('antitracking', 'set config option', opt, val);
-			antitracking.action('setConfigOption', opt, val);
-		});
-	}
-	// enable offers ONLY if ABTest is true and user has left it enabled.
-	conf.enable_offers = (abtest.hasTest('offers') && conf.enable_offers);
 }
 
 /**
@@ -1201,10 +1187,6 @@ function initializeGhosteryModules() {
 
 		conf.install_random_number = randomNumber;
 		conf.install_date = dateString;
-	} else {
-		// Record install if the user previously closed the browser before the install ping fired
-		metrics.ping('install');
-		metrics.ping('install_complete');
 	}
 	// start cliqz app
 	const cliqzStartup = cliqz.start().then(() =>
