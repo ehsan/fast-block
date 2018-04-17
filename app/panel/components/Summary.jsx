@@ -386,24 +386,6 @@ class Summary extends React.Component {
 						<div id="cliqz-controls">
 							<div className="row text-center">
 								<div className="columns medium-4">
-									<button value="antiTrackBtn" onClick={this.openDrawer} className="disabled button controls-trust cliqz-control-btn anti-track-btn g-tooltip" >
-										<Tooltip
-											header={t('tooltip_anti_track')}
-											body={showBody && t('tooltip_anti_track_body')}
-											position={`${showBody ? 'top' : 'right'} top-right`}
-										/>
-									</button>
-								</div>
-								<div className="columns medium-4">
-									<button value="adBlockBtn" onClick={this.openDrawer} className="disabled button controls-restrict cliqz-control-btn ad-block-btn g-tooltip" >
-										<Tooltip
-											header={t('tooltip_ad_block')}
-											body={showBody && t('tooltip_ad_block_body')}
-											position={showBody ? 'top' : 'right'}
-										/>
-									</button>
-								</div>
-								<div className="columns medium-4">
 									<button value="smartBlockBtn" onClick={this.openDrawer} className={`${(this.state.disableBlocking || this.props.paused_blocking || this.props.sitePolicy !== false ? 'disabled' : '')} ${(this.props.enable_smart_block ? 'active' : '')} button controls-pause cliqz-control-btn smart-block-btn g-tooltip`}>
 										<Tooltip
 											header={t('tooltip_smart_block')}
@@ -447,9 +429,6 @@ class Summary extends React.Component {
 								</div>
 							</div>
 						</div>
-						{(this.props.is_expert && !this.props.is_expanded) &&
-							<div className="map-trackers" onClick={this.clickMapTheseTrackers}>{ t('summary_map_these_trackers') }</div>
-						}
 					</div>
 				</div>
 			</div>

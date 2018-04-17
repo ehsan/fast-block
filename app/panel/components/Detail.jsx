@@ -40,10 +40,6 @@ class Detail extends React.Component {
 	}
 
 	BlockingComponent = () => (<Blocking />);
-	HistoryComponent = () => (<History />);
-	PerformanceComponent = () => (<Performance />);
-	RewardsComponent = () => (<Rewards />);
-	PremiumComponent = () => (<Premium />);
 
 	/**
 	 * Click "expertTab" to enable detailed (expert) mode. Trigger action.
@@ -67,11 +63,6 @@ class Detail extends React.Component {
 						<div className="moon" />
 					</div>
 					<Route path="/detail/blocking" render={this.BlockingComponent} />
-					<Route path="/detail/history" render={this.HistoryComponent} />
-					<Route path="/detail/performance" render={this.PerformanceComponent} />
-					<Route path="/detail/rewards" render={this.RewardsComponent} />
-					<Route path="/detail/premium" render={this.PremiumComponent} />
-					<DetailMenu />
 				</div>
 			</div>
 		);
