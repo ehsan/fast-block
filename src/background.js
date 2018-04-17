@@ -66,7 +66,6 @@ const onBeforeRequest = events.onBeforeRequest.bind(events);
 const onHeadersReceived = events.onHeadersReceived.bind(events);
 
 // Cliqz Modules
-const humanweb = cliqz.modules['human-web'];
 const { adblocker, antitracking } = cliqz.modules;
 const messageCenter = cliqz.modules['message-center'];
 const offers = cliqz.modules['offers-v2'];
@@ -1219,14 +1218,14 @@ function initializeGhosteryModules() {
 				conf.enable_anti_tracking = false;
 				setCliqzModuleEnabled(antitracking, conf.enable_anti_tracking);
 				setCliqzModuleEnabled(adblocker, conf.enable_ad_block);
-				setCliqzModuleEnabled(humanweb, IS_EDGE ? false : conf.enable_human_web);
+				setCliqzModuleEnabled(humanweb, false);
 			} else {
-				conf.enable_ad_block = !adblocker.isDisabled;
-				conf.enable_anti_tracking = !antitracking.isDisabled;
-				conf.enable_human_web = IS_EDGE ? false : !humanweb.isDisabled;
+				conf.enable_ad_block = false;
+				conf.enable_anti_tracking = false;
+				conf.enable_human_web = false;
 			}
 			// sync conf from module status
-			conf.enable_offers = IS_EDGE ? false : !offers.isDisabled;
+			conf.enable_offers = false;
 		})).catch((e) => {
 		log('cliqzStartup error', e);
 	});
