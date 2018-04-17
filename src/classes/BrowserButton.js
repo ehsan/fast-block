@@ -140,7 +140,7 @@ class BrowserButton {
 			trackerCount = '';
 		} else {
 			const apps = foundBugs.getAppsCountByIssues(tabId, tabUrl);
-			trackerCount = apps.all.toString();
+			trackerCount = apps.smart.toString() + '/' + apps.all.toString();
 			alert = (apps.total > 0);
 		}
 

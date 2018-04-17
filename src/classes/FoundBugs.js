@@ -295,8 +295,11 @@ class FoundBugs {
 		let compatibility = 0;
 		let insecure = 0;
 		let latency = 0;
+		let smart = 0;
 		let total = 0;
 		let all = 0;
+
+		const smartBlock = tabInfo.getTabInfo(tab_id).smartBlock;
 
 		if (apps) {
 			apps.forEach((app) => {
@@ -312,6 +315,10 @@ class FoundBugs {
 				if (app.hasLatencyIssue) {
 					latency++;
 				}
+				if ((smartBlock.blocked.hasOwnProperty(app.id) && 'blocked') ||
+				    (smartBlock.unblocked.hasOwnProperty(app.id) && 'unblocked')) {
+					smart++;
+				}
 				all++;
 			});
 		}
@@ -320,6 +327,7 @@ class FoundBugs {
 			compatibility,
 			insecure,
 			latency,
+			smart,
 			total,
 			all
 		};
