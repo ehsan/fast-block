@@ -227,7 +227,7 @@
 	},
 	"browser_button_tooltip": {
 		"description": "Ghostery's browser button tooltip.",
-		"message": "View Ghostery's findings"
+		"message": "View FastBlock's findings"
 	},
 	"button_cancel": {
 		"description": "Part of a confirmation dialog. Clicking this cancels the action.",
